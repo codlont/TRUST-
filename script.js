@@ -1,106 +1,63 @@
 
-// ============================================
-// TRUST WALLET PROJECT
-// Complete website interactions
-// ============================================
-
-document.addEventListener("DOMContentLoaded", function () {
-
+document.addEventListener("DOMContentLoaded", () => {
   const wallet = document.getElementById("wallet");
-  const coinSearch = document.getElementById("coinSearch");
-  const assetRows = document.querySelectorAll(".asset-row");
-  const noAssets = document.getElementById("noAssets");
+  const dialog = document.getElementById("actionDialog");
+  const dialogTitle = document.getElementById("dialogTitle");
+  const dialogMessage = document.getElementById("dialogMessage");
+  const navigation = document.querySelector(".main-nav");
 
-  // Hide wallet dashboard initially
-  if (wallet) {
-    wallet.hidden = true;
-  }
-
-  // ASSET SEARCH
-  if (coinSearch) {
-    coinSearch.addEventListener("input", function () {
-
-      const searchValue = coinSearch.value
-        .toLowerCase()
-        .trim();
-
-      let visibleCount = 0;
-
-      assetRows.forEach(function (asset) {
-
-        const assetName = asset.dataset.name.toLowerCase();
-
-        const matches = assetName.includes(searchValue);
-
-        asset.hidden = !matches;
-
-        if (matches) {
-          visibleCount++;
-        }
-
-      });
-
-      if (noAssets) {
-        noAssets.hidden = visibleCount !== 0;
-      }
-
-    });
-  }
-
-  // SMOOTH NAVIGATION
-  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
-
-    link.addEventListener("click", function (event) {
-
-      const targetId = this.getAttribute("href");
-
-      if (targetId === "#") {
-        return;
-      }
-
-      const target = document.querySelector(targetId);
+  // Smooth scrolling for homepage links
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener("click", event => {
+      const target = document.querySelector(link.getAttribute("href"));
 
       if (target) {
         event.preventDefault();
-
-        target.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
+        target.scrollIntoView({ behavior: "smooth" });
+        navigation?.classList.remove("nav-open");
       }
-
     });
-
   });
 
+  // Close mobile navigation after choosing a menu item
+  document.querySelectorAll(".main-nav a").forEach(link => {
+    link.addEventListener("click", () => {
+      navigation?.classList.remove("nav-open");
+    });
+  });
+
+  // Close the dialog when clicking outside it
+  dialog?.addEventListener("click", event => {
+    if (event.target === dialog) {
+      closeActionDialog();
+    }
+  });
+
+  // Close dialog with Escape key
+  dialog?.addEventListener("close", () => {
+    document.body.style.overflow = "";
+  });
 });
 
-// OPEN WALLET DASHBOARD
 function showWallet() {
-
   const wallet = document.getElementById("wallet");
 
-  if (!wallet) {
-    return;
-  }
+  if (!wallet) return;
 
   wallet.hidden = false;
 
-  wallet.scrollIntoView({
-    behavior: "smooth",
-    block: "start"
-  });
-
+  setTimeout(() => {
+    wallet.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }, 50);
 }
 
-// CLOSE WALLET DASHBOARD
 function closeWallet() {
-
   const wallet = document.getElementById("wallet");
 
-  if (!wallet) {
-    return;
-  }
+  if (!wallet) return;
 
   wallet.hidden = true;
 
@@ -108,72 +65,37 @@ function closeWallet() {
     top: 0,
     behavior: "smooth"
   });
-
 }
 
-// WALLET ACTION DIALOG
 function demoAction(action) {
-
   const dialog = document.getElementById("actionDialog");
   const title = document.getElementById("dialogTitle");
   const message = document.getElementById("dialogMessage");
 
-  if (!dialog || !title || !message) {
-    return;
-  }
-
-  title.textContent = action;
-
-  const messages = {
-    Send: "The send interface is ready for future blockchain integration. No cryptocurrency will be transferred in this demonstration.",
-    Receive: "The receive interface is ready for future wallet integration. No real wallet address is generated.",
-    Swap: "The swap interface is ready for future exchange integration. No cryptocurrency will be exchanged."
+  const explanations = {
+    Send: "This is a demonstration. Sending real cryptocurrency is not enabled, and no wallet addresses or private keys are collected.",
+    Receive: "This is a demonstration. No real receiving address is generated. Never share your recovery phrase with anyone.",
+    Swap: "This is a demonstration. No real cryptocurrency exchange or blockchain transaction is performed."
   };
 
-  message.textContent =
-    messages[action] || "This is a demonstration interface.";
+  if (!dialog || !title || !message) return;
+
+  title.textContent = action + " Crypto";
+  message.textContent = explanations[action] || "This feature is available for demonstration only.";
 
   if (typeof dialog.showModal === "function") {
     dialog.showModal();
+    document.body.style.overflow = "hidden";
+  } else {
+    alert(message.textContent);
   }
-
 }
 
-// CLOSE ACTION DIALOG
 function closeActionDialog() {
-
   const dialog = document.getElementById("actionDialog");
 
-  if (dialog && dialog.open) {
+  if (dialog?.open) {
     dialog.close();
   }
-
 }
 
-// SAMPLE CRYPTOCURRENCY DATA
-const cryptoAssets = [
-
-  {
-    name: "Bitcoin",
-    symbol: "BTC",
-    price: 67400,
-    change: "+2.45%"
-  },
-
-  {
-    name: "Ethereum",
-    symbol: "ETH",
-    price: 3450,
-    change: "+1.82%"
-  },
-
-  {
-    name: "Tether",
-    symbol: "USDT",
-    price: 1,
-    change: "0.01%"
-  }
-
-];
-
-console.log("Wallet interface loaded successfully.");
