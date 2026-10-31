@@ -1,318 +1,58 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#ffffff">
-    <title>Codlont Wallet | Your Crypto, Your Control</title>
-    <meta name="description" content="Explore digital assets with Codlont Wallet. A modern wallet experience.">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connect Trust Wallet | Codlont</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="site-header">
-    <a href="#" class="brand">
-        <span class="brand-icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M24 3L43 11V23C43 34 35 42 24 46C13 42 5 34 5 23V11L24 3Z" fill="#3375BB"/>
-                <path d="M24 10L36 15V23C36 30 31 36 24 39C17 36 12 30 12 23V15L24 10Z" fill="white"/>
-                <path d="M19 22H29C31 22 33 24 33 26V29H19C17 29 15 27 15 25C15 23 17 22 19 22Z" fill="#3375BB"/>
-                <circle cx="28" cy="25.5" r="1.5" fill="white"/>
-            </svg>
-        </span>
-        <span class="brand-name">CODLONT WALLET</span>
-    </a>
-
-    <nav class="main-nav" id="mainNav">
-        <a href="#features">Features</a>
-        <a href="#web3">Web3</a>
-        <a href="#security">Security</a>
-        <a href="#faq">FAQ</a>
-    </nav>
-
-    <div class="header-actions">
-        <button class="header-button" id="openWallet">Explore wallet</button>
-        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+  <header class="header">
+    <div class="brand">
+      <div class="brand-icon">C</div>
+      <span>CODLONT</span>
     </div>
-</header>
+  </header>
 
-<main>
-    <section class="hero">
-        <div class="hero-content">
-            <div class="eyebrow">
-                <span class="status-dot"></span>
-                YOUR DIGITAL ASSETS, YOUR CONTROL
-            </div>
+  <main class="container">
+    <div class="wallet-card">
 
-            <h1>Your crypto.<br><span>Your freedom.</span></h1>
+      <div class="wallet-icon">
+        <svg viewBox="0 0 48 48" width="52" height="52"
+             fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 3L42 11V23C42 34 34 42 24 46C14 42 6 34 6 23V11L24 3Z"
+                fill="#3375BB"/>
+          <path d="M24 10L35 15V23C35 30 30 35 24 38C18 35 13 30 13 23V15L24 10Z"
+                fill="white"/>
+        </svg>
+      </div>
 
-            <p class="hero-description">
-                Explore the world of digital assets with a modern wallet experience.
-                Discover, manage and learn about crypto from one place.
-            </p>
+      <h1>Connect your wallet</h1>
 
-            <div class="hero-buttons">
-                <button class="primary-button" id="getStarted">Explore wallet <span>→</span></button>
-                <a href="#features" class="secondary-button">Discover features</a>
-            </div>
+      <p class="description">
+        Connect your Trust Wallet to continue to Codlont.
+      </p>
 
-            <div class="hero-trust">
-                <span class="trust-icon">✓</span>
-                <span>Designed for a simpler digital asset experience</span>
-            </div>
-        </div>
+      <button id="connectButton" class="connect-button">
+        Connect Trust Wallet
+      </button>
 
-        <div class="hero-visual">
-            <div class="blue-glow"></div>
+      <div id="status" class="status" aria-live="polite">
+        Secure wallet connection
+      </div>
 
-            <div class="phone">
-                <div class="phone-top">
-                    <span class="phone-brand">
-                        <span class="mini-logo">C</span>
-                        Codlont
-                    </span>
-                    <span class="phone-menu">•••</span>
-                </div>
+      <p class="security">
+        Your recovery phrase and private keys are never requested.
+      </p>
 
-                <div class="phone-label">Demo portfolio value</div>
-                <div class="phone-balance">$24,680.50</div>
-                <div class="phone-change">↗ +5.28% <span>this week</span></div>
-
-                <div class="phone-chart">
-                    <svg viewBox="0 0 320 110" preserveAspectRatio="none">
-                        <defs>
-                            <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="0%" stop-color="#3375BB" stop-opacity=".25"/>
-                                <stop offset="100%" stop-color="#3375BB" stop-opacity="0"/>
-                            </linearGradient>
-                        </defs>
-                        <path d="M0 88 C25 82 28 60 55 70 S90 82 112 50 S145 65 165 42 S205 52 225 27 S260 47 280 17 S300 25 320 8 V110 H0 Z" fill="url(#chartFill)"/>
-                        <path d="M0 88 C25 82 28 60 55 70 S90 82 112 50 S145 65 165 42 S205 52 225 27 S260 47 280 17 S300 25 320 8" stroke="#3375BB" stroke-width="3" fill="none" stroke-linecap="round"/>
-                    </svg>
-                </div>
-
-                <div class="phone-actions">
-                    <div><span>↑</span> Send</div>
-                    <div><span>↓</span> Receive</div>
-                    <div><span>⇄</span> Swap</div>
-                </div>
-
-                <div class="phone-assets-title">Popular assets</div>
-
-                <div class="phone-asset">
-                    <span class="coin-symbol bitcoin">₿</span>
-                    <span class="asset-name">Bitcoin<small>BTC</small></span>
-                    <strong>$67,240</strong>
-                </div>
-
-                <div class="phone-asset">
-                    <span class="coin-symbol ethereum">◆</span>
-                    <span class="asset-name">Ethereum<small>ETH</small></span>
-                    <strong>$3,420</strong>
-                </div>
-
-                <div class="phone-asset">
-                    <span class="coin-symbol tether">₮</span>
-                    <span class="asset-name">Tether<small>USDT</small></span>
-                    <strong>$1.00</strong>
-                </div>
-            </div>
-
-            <div class="floating-label label-one">Digital assets <span>✦</span></div>
-            <div class="floating-label label-two"><span>✓</span> Simple experience</div>
-        </div>
-    </section>
-
-    <section class="stats-strip">
-        <div><strong>One place</strong><span>For your digital asset journey</span></div>
-        <div><strong>Simple</strong><span>Easy-to-understand experience</span></div>
-        <div><strong>Web3</strong><span>Explore blockchain technology</span></div>
-    </section>
-
-    <section class="section features-section" id="features">
-        <div class="section-heading">
-            <span class="eyebrow">WHAT YOU CAN EXPLORE</span>
-            <h2>Everything starts<br>with a better experience.</h2>
-            <p>Discover the tools and information that make digital assets easier to understand.</p>
-        </div>
-
-        <div class="feature-grid">
-            <article class="feature-card">
-                <div class="feature-icon green">◈</div>
-                <h3>Digital assets</h3>
-                <p>Explore information about popular cryptocurrencies and digital assets.</p>
-            </article>
-
-            <article class="feature-card">
-                <div class="feature-icon purple">⇄</div>
-                <h3>Asset exchange</h3>
-                <p>Learn how crypto exchanges and digital asset swaps work.</p>
-            </article>
-
-            <article class="feature-card">
-                <div class="feature-icon orange">◎</div>
-                <h3>Portfolio overview</h3>
-                <p>See an illustrative overview of how a digital asset portfolio can look.</p>
-            </article>
-
-            <article class="feature-card">
-                <div class="feature-icon blue">⌘</div>
-                <h3>Web3 discovery</h3>
-                <p>Discover decentralized applications and blockchain technology.</p>
-            </article>
-        </div>
-    </section>
-
-    <section class="showcase-section" id="web3">
-        <div class="showcase-content">
-            <span class="eyebrow">DISCOVER WEB3</span>
-            <h2>Step into the<br>world of Web3.</h2>
-            <p>Explore decentralized technology, blockchain applications and the expanding digital economy.</p>
-            <a href="#security" class="text-link">Discover more <span>→</span></a>
-        </div>
-
-        <div class="showcase-visual">
-            <div class="web3-circle circle-one"></div>
-            <div class="web3-circle circle-two"></div>
-            <div class="web3-circle circle-three"></div>
-            <div class="web3-center">WEB<span>3</span></div>
-            <div class="web3-caption">A connected digital world</div>
-        </div>
-    </section>
-
-    <section class="section security-section" id="security">
-        <div class="security-visual">
-            <div class="security-ring">
-                <div class="shield">✓</div>
-            </div>
-            <div class="security-orbit orbit-one"></div>
-            <div class="security-orbit orbit-two"></div>
-        </div>
-
-        <div class="security-content">
-            <span class="eyebrow">SECURITY AWARENESS</span>
-            <h2>Your digital safety<br>matters.</h2>
-            <p>Learn the essential practices for protecting digital assets and staying safe online.</p>
-
-            <ul class="security-list">
-                <li><span>✓</span> Never share your recovery phrase.</li>
-                <li><span>✓</span> Verify websites before connecting.</li>
-                <li><span>✓</span> Be careful with suspicious links.</li>
-                <li><span>✓</span> Keep your devices protected.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section class="download-section">
-        <div class="download-content">
-            <span class="eyebrow">THE CODLONT EXPERIENCE</span>
-            <h2>Explore digital assets<br>with confidence.</h2>
-            <p>Start exploring the Codlont Wallet demonstration.</p>
-            <button class="primary-button" id="downloadExplore">Explore wallet <span>→</span></button>
-        </div>
-
-        <div class="download-art">
-            <div class="download-logo">
-                <span class="download-c">C</span>
-            </div>
-            <div class="art-orbit"></div>
-        </div>
-    </section>
-
-    <section class="section faq-section" id="faq">
-        <div class="section-heading">
-            <span class="eyebrow">QUESTIONS AND ANSWERS</span>
-            <h2>Frequently asked questions.</h2>
-        </div>
-
-        <div class="faq-list">
-            <details>
-                <summary>What is Codlont Wallet?</summary>
-                <p>Codlont Wallet is an independent wallet website concept for exploring digital assets and blockchain technology.</p>
-            </details>
-
-            <details>
-                <summary>Can I store cryptocurrency here?</summary>
-                <p>This version is a front-end demonstration. It does not store, send or receive real cryptocurrency.</p>
-            </details>
-
-            <details>
-                <summary>Does Codlont Wallet require my recovery phrase?</summary>
-                <p>No. Never enter your recovery phrase or private keys into this demonstration website.</p>
-            </details>
-
-            <details>
-                <summary>Is Codlont Wallet affiliated with Trust Wallet?</summary>
-                <p>No. Codlont Wallet is an independent project and is not affiliated with Trust Wallet.</p>
-            </details>
-        </div>
-    </section>
-</main>
-
-<footer class="site-footer">
-    <a href="#" class="brand footer-brand">
-        <span class="brand-icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M24 3L43 11V23C43 34 35 42 24 46C13 42 5 34 5 23V11L24 3Z" fill="#3375BB"/>
-                <path d="M24 10L36 15V23C36 30 31 36 24 39C17 36 12 30 12 23V15L24 10Z" fill="white"/>
-                <path d="M19 22H29C31 22 33 24 33 26V29H19C17 29 15 27 15 25C15 23 17 22 19 22Z" fill="#3375BB"/>
-                <circle cx="28" cy="25.5" r="1.5" fill="white"/>
-            </svg>
-        </span>
-        <span class="brand-name">CODLONT WALLET</span>
-    </a>
-
-    <p>An independent digital asset website demonstration.</p>
-    <div class="footer-bottom">© 2026 Codlont. All rights reserved.</div>
-</footer>
-
-<div class="wallet-dashboard" id="walletDashboard" hidden>
-    <div class="dashboard-top">
-        <div>
-            <span class="eyebrow">CODLONT WALLET DEMO</span>
-            <h2>Your portfolio</h2>
-        </div>
-        <button class="close-wallet" id="closeWallet" aria-label="Close">✕</button>
     </div>
+  </main>
 
-    <div class="dashboard-balance">
-        <span>Illustrative portfolio balance</span>
-        <strong>$24,680.50</strong>
-        <small>Demo figures — not real funds</small>
-    </div>
+  <footer>
+    © 2026 Codlont. All rights reserved.
+  </footer>
 
-    <div class="dashboard-actions">
-        <button class="demo-action" data-action="Send">↑<span>Send</span></button>
-        <button class="demo-action" data-action="Receive">↓<span>Receive</span></button>
-        <button class="demo-action" data-action="Swap">⇄<span>Swap</span></button>
-    </div>
-
-    <h3>Assets</h3>
-    <div class="dashboard-assets">
-        <div class="asset-row"><span class="coin-symbol bitcoin">₿</span><span>Bitcoin<small>BTC</small></span><strong>$67,240</strong></div>
-        <div class="asset-row"><span class="coin-symbol ethereum">◆</span><span>Ethereum<small>ETH</small></span><strong>$3,420</strong></div>
-        <div class="asset-row"><span class="coin-symbol tether">₮</span><span>Tether<small>USDT</small></span><strong>$1.00</strong></div>
-    </div>
-
-    <p class="demo-notice">Demonstration only. No real transactions take place.</p>
-</div>
-
-<div class="dialog" id="demoDialog" aria-hidden="true">
-    <div class="dialog-content">
-        <button class="dialog-close" id="dialogClose" aria-label="Close">✕</button>
-        <div class="dialog-symbol">ⓘ</div>
-        <h3 id="dialogTitle">Demo feature</h3>
-        <p id="dialogMessage">This is a demonstration. No real cryptocurrency transaction will take place.</p>
-        <button class="primary-button" id="dialogOkay">Okay</button>
-    </div>
-</div>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
