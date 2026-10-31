@@ -1,101 +1,72 @@
+const connectButton = document.getElementById("connectButton");
+const statusText = document.getElementById("status");
 
-document.addEventListener("DOMContentLoaded", () => {
-  const wallet = document.getElementById("wallet");
-  const dialog = document.getElementById("actionDialog");
-  const dialogTitle = document.getElementById("dialogTitle");
-  const dialogMessage = document.getElementById("dialogMessage");
-  const navigation = document.querySelector(".main-nav");
+function setStatus(message, type = "") {
+  statusText.textContent = message;
+  statusText.className = "status " + type;
+}
 
-  // Smooth scrolling for homepage links
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener("click", event => {
-      const target = document.querySelector(link.getAttribute("href"));
+function getTrustWalletProvider() {
+  const ethereum = window.ethereum;
 
-      if (target) {
-        event.preventDefault();
-        target.scrollIntoView({ behavior: "smooth" });
-        navigation?.classList.remove("nav-open");
-      }
+  if (!ethereum) {
+    return null;
+  }
+
+  if (ethereum.isTrust || ethereum.isTrustWallet) {
+    return ethereum;
+  }
+
+  if (Array.isArray(ethereum.providers)) {
+    return ethereum.providers.find(
+      provider => provider.isTrust || provider.isTrustWallet
+    ) || null;
+  }
+
+  return null;
+}
+
+connectButton.addEventListener("click", async () => {
+  const provider = getTrustWalletProvider();
+
+  if (!provider) {
+    setStatus(
+      "Trust Wallet was not detected. Open this website in the Trust Wallet browser or install its browser extension.",
+      "error"
+    );
+    return;
+  }
+
+  connectButton.disabled = true;
+  connectButton.textContent = "Connecting...";
+  setStatus("Please approve the connection in Trust Wallet.");
+
+  try {
+    const accounts = await provider.request({
+      method: "eth_requestAccounts"
     });
-  });
 
-  // Close mobile navigation after choosing a menu item
-  document.querySelectorAll(".main-nav a").forEach(link => {
-    link.addEventListener("click", () => {
-      navigation?.classList.remove("nav-open");
-    });
-  });
-
-  // Close the dialog when clicking outside it
-  dialog?.addEventListener("click", event => {
-    if (event.target === dialog) {
-      closeActionDialog();
+    if (!accounts || accounts.length === 0) {
+      throw new Error("No wallet account was returned.");
     }
-  });
 
-  // Close dialog with Escape key
-  dialog?.addEventListener("close", () => {
-    document.body.style.overflow = "";
-  });
+    connectButton.textContent = "Connected";
+    setStatus("Wallet connected successfully. Loading...", "success");
+
+    // Continue with your website's authenticated experience here.
+    // Do not send private keys or recovery phrases anywhere.
+
+  } catch (error) {
+    connectButton.disabled = false;
+    connectButton.textContent = "Connect Trust Wallet";
+
+    if (error.code === 4001) {
+      setStatus("Connection request was rejected.", "error");
+    } else {
+      setStatus(
+        error.message || "Unable to connect wallet. Please try again.",
+        "error"
+      );
+    }
+  }
 });
-
-function showWallet() {
-  const wallet = document.getElementById("wallet");
-
-  if (!wallet) return;
-
-  wallet.hidden = false;
-
-  setTimeout(() => {
-    wallet.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
-  }, 50);
-}
-
-function closeWallet() {
-  const wallet = document.getElementById("wallet");
-
-  if (!wallet) return;
-
-  wallet.hidden = true;
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-}
-
-function demoAction(action) {
-  const dialog = document.getElementById("actionDialog");
-  const title = document.getElementById("dialogTitle");
-  const message = document.getElementById("dialogMessage");
-
-  const explanations = {
-    Send: "This is a demonstration. Sending real cryptocurrency is not enabled, and no wallet addresses or private keys are collected.",
-    Receive: "This is a demonstration. No real receiving address is generated. Never share your recovery phrase with anyone.",
-    Swap: "This is a demonstration. No real cryptocurrency exchange or blockchain transaction is performed."
-  };
-
-  if (!dialog || !title || !message) return;
-
-  title.textContent = action + " Crypto";
-  message.textContent = explanations[action] || "This feature is available for demonstration only.";
-
-  if (typeof dialog.showModal === "function") {
-    dialog.showModal();
-    document.body.style.overflow = "hidden";
-  } else {
-    alert(message.textContent);
-  }
-}
-
-function closeActionDialog() {
-  const dialog = document.getElementById("actionDialog");
-
-  if (dialog?.open) {
-    dialog.close();
-  }
-}
-
