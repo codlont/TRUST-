@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>Trust Wallet | Digital Assets</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <a href="#" class="logo">TRUST WALLET</a>
+
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#security">Security</a>
+      <a href="#download">Get Started</a>
+    </nav>
+
+    <button class="primary-btn" onclick="showWallet()">
+      Open Wallet
+    </button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <span class="eyebrow">YOUR DIGITAL ASSETS</span>
+        <h1>Your crypto.<br> Your control.</h1>
+        <p>
+          Explore a modern digital asset interface.
+          Manage your portfolio and discover the world
+          of cryptocurrency.
+        </p>
+
+        <div class="hero-actions">
+          <button class="primary-btn" onclick="showWallet()">
+            Explore Wallet
+          </button>
+          <a href="#features" class="secondary-btn">
+            Discover More
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="wallet-card">
+          <span>Portfolio preview</span>
+          <h2>$24,580.80</h2>
+          <p>Sample portfolio balance</p>
+          <div class="wallet-symbol">₿</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="features">
+      <h2>Everything in one place</h2>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h3>Portfolio</h3>
+          <p>View digital assets in one dashboard.</p>
+        </article>
+
+        <article class="feature-card">
+          <h3>Explore</h3>
+          <p>Discover cryptocurrencies and blockchain networks.</p>
+        </article>
+
+        <article class="feature-card">
+          <h3>Transactions</h3>
+          <p>Explore your transaction activity interface.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="security" class="security">
+      <h2>Security matters</h2>
+      <p>
+        A wallet interface designed around privacy,
+        transparency and user control.
+      </p>
+    </section>
+
+    <section id="download" class="download">
+      <h2>Start exploring</h2>
+      <p>Discover your digital asset dashboard.</p>
+      <button class="primary-btn" onclick="showWallet()">
+        Open Dashboard
+      </button>
+    </section>
+
+    <section id="wallet" class="wallet-dashboard" hidden>
+      <h2>My Wallet</h2>
+      <p>Sample balance</p>
+      <h1>$24,580.80</h1>
+      <p>Demo data — no real funds connected.</p>
+      <div class="feature-grid">
+        <article class="feature-card">Bitcoin — BTC</article>
+        <article class="feature-card">Ethereum — ETH</article>
+        <article class="feature-card">Tether — USDT</article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Independent cryptocurrency interface project.</p>
+    <p>© 2026</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
