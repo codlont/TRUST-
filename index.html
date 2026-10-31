@@ -1,81 +1,118 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Connect Wallet | Codlont</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>CODLONT | Connect Wallet</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <header class="header">
-    <div class="brand">
+    <header class="header">
+        <div class="brand">
 
-      <!-- Codlont shield logo -->
-      <div class="brand-icon">
-        <svg viewBox="0 0 48 48" width="42" height="42"
-             fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- CODLONT SHIELD LOGO -->
+            <div class="brand-icon">
+                <svg
+                    viewBox="0 0 48 48"
+                    width="42"
+                    height="42"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-label="Codlont shield logo"
+                    role="img"
+                >
+                    <path
+                        d="M24 2 L44 10 V24
+                           C44 35 36 43 24 47
+                           C12 43 4 35 4 24
+                           V10 Z"
+                        fill="#3375BB"
+                    />
 
-          <path d="M24 2L44 11V24C44 35 35 43 24 47
-                   C13 43 4 35 4 24V11L24 2Z"
-                fill="#3375BB"/>
+                    <path
+                        d="M24 9 L37 15 V24
+                           C37 31 32 37 24 40
+                           C16 37 11 31 11 24
+                           V15 Z"
+                        fill="#FFFFFF"
+                    />
+                </svg>
+            </div>
 
-          <path d="M24 9L37 15V24C37 31 31 37 24 40
-                   C17 37 11 31 11 24V15L24 9Z"
-                fill="white"/>
+            <span class="brand-name">CODLONT</span>
 
-        </svg>
-      </div>
+        </div>
+    </header>
 
-      <span>CODLONT</span>
-    </div>
-  </header>
 
-  <main class="container">
-    <div class="wallet-card">
+    <main class="main-container">
 
-      <div class="wallet-icon">
-        <svg viewBox="0 0 48 48" width="52" height="52"
-             fill="none" xmlns="http://www.w3.org/2000/svg">
+        <section class="wallet-card">
 
-          <path d="M24 3L42 11V23C42 34 34 42 24 46
-                   C14 42 6 34 6 23V11L24 3Z"
-                fill="#3375BB"/>
+            <div class="card-icon">
+                <svg
+                    viewBox="0 0 48 48"
+                    width="54"
+                    height="54"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                >
+                    <path
+                        d="M24 3 L43 11 V24
+                           C43 35 35 42 24 46
+                           C13 42 5 35 5 24
+                           V11 Z"
+                        fill="#3375BB"
+                    />
 
-          <path d="M24 10L35 15V23C35 30 30 35 24 38
-                   C18 35 13 30 13 23V15L24 10Z"
-                fill="white"/>
+                    <path
+                        d="M24 11 L35 16 V24
+                           C35 31 30 36 24 39
+                           C18 36 13 31 13 24
+                           V16 Z"
+                        fill="#FFFFFF"
+                    />
+                </svg>
+            </div>
 
-        </svg>
-      </div>
+            <h1>Connect your wallet</h1>
 
-      <h1>Connect your wallet</h1>
+            <p class="description">
+                Connect your Trust Wallet to continue to Codlont.
+            </p>
 
-      <p class="description">
-        Connect your Trust Wallet to continue to Codlont.
-      </p>
+            <button id="connectButton" class="connect-button" type="button">
+                Connect Trust Wallet
+            </button>
 
-      <button id="connectButton" class="connect-button">
-        Connect Trust Wallet
-      </button>
+            <p id="status" class="status" role="status" aria-live="polite">
+                Your wallet is not connected.
+            </p>
 
-      <div id="status" class="status" aria-live="polite">
-        Secure wallet connection
-      </div>
+            <div class="security-notice">
+                <span class="security-icon">🔒</span>
 
-      <p class="security">
-        Your wallet credentials remain private.
-      </p>
+                <p>
+                    Your wallet credentials remain private.
+                    Never share your recovery phrase or private keys.
+                </p>
+            </div>
 
-    </div>
-  </main>
+        </section>
 
-  <footer>
-    © 2026 Codlont. All rights reserved.
-  </footer>
+    </main>
 
-  <script src="script.js"></script>
+
+    <footer class="footer">
+        <p>© 2026 Codlont. All rights reserved.</p>
+    </footer>
+
+
+    <script src="script.js"></script>
+
 </body>
 </html>
-
