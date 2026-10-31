@@ -5,12 +5,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#ffffff">
+
   <title>Trust Wallet | Digital Assets</title>
+
+  <meta name="description" content="Explore a modern digital asset wallet interface.">
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
+  <!-- NAVIGATION -->
   <header class="navbar">
+
     <a href="#" class="logo">TRUST WALLET</a>
 
     <nav>
@@ -22,13 +29,20 @@
     <button class="primary-btn" onclick="showWallet()">
       Open Wallet
     </button>
+
   </header>
 
   <main>
+
+    <!-- HOMEPAGE HERO -->
     <section class="hero">
+
       <div class="hero-content">
+
         <span class="eyebrow">YOUR DIGITAL ASSETS</span>
-        <h1>Your crypto.<br> Your control.</h1>
+
+        <h1>Your crypto.<br>Your control.</h1>
+
         <p>
           Explore a modern digital asset interface.
           Manage your portfolio and discover the world
@@ -36,29 +50,44 @@
         </p>
 
         <div class="hero-actions">
+
           <button class="primary-btn" onclick="showWallet()">
             Explore Wallet
           </button>
+
           <a href="#features" class="secondary-btn">
             Discover More
           </a>
+
         </div>
+
       </div>
 
       <div class="hero-visual">
+
         <div class="wallet-card">
+
           <span>Portfolio preview</span>
+
           <h2>$24,580.80</h2>
+
           <p>Sample portfolio balance</p>
+
           <div class="wallet-symbol">₿</div>
+
         </div>
+
       </div>
+
     </section>
 
+    <!-- FEATURES -->
     <section id="features" class="features">
+
       <h2>Everything in one place</h2>
 
       <div class="feature-grid">
+
         <article class="feature-card">
           <h3>Portfolio</h3>
           <p>View digital assets in one dashboard.</p>
@@ -73,43 +102,239 @@
           <h3>Transactions</h3>
           <p>Explore your transaction activity interface.</p>
         </article>
+
       </div>
+
     </section>
 
+    <!-- SECURITY -->
     <section id="security" class="security">
+
       <h2>Security matters</h2>
+
       <p>
         A wallet interface designed around privacy,
         transparency and user control.
       </p>
+
     </section>
 
+    <!-- DOWNLOAD -->
     <section id="download" class="download">
+
       <h2>Start exploring</h2>
+
       <p>Discover your digital asset dashboard.</p>
+
       <button class="primary-btn" onclick="showWallet()">
         Open Dashboard
       </button>
+
     </section>
 
+    <!-- WALLET DASHBOARD -->
     <section id="wallet" class="wallet-dashboard" hidden>
-      <h2>My Wallet</h2>
-      <p>Sample balance</p>
-      <h1>$24,580.80</h1>
-      <p>Demo data — no real funds connected.</p>
-      <div class="feature-grid">
-        <article class="feature-card">Bitcoin — BTC</article>
-        <article class="feature-card">Ethereum — ETH</article>
-        <article class="feature-card">Tether — USDT</article>
+
+      <!-- DASHBOARD HEADER -->
+      <div class="dashboard-header">
+
+        <div>
+          <span class="eyebrow">MY PORTFOLIO</span>
+
+          <h2>Wallet Overview</h2>
+
+          <p>Manage and explore your digital assets.</p>
+        </div>
+
+        <button class="secondary-btn" onclick="closeWallet()">
+          Back to Home
+        </button>
+
       </div>
+
+      <!-- PORTFOLIO BALANCE -->
+      <div class="balance-card">
+
+        <p>Total portfolio balance</p>
+
+        <h1 id="totalBalance">$24,580.80</h1>
+
+        <span class="positive">+2.45% today</span>
+
+        <!-- WALLET ACTIONS -->
+        <div class="wallet-actions">
+
+          <button class="primary-btn" onclick="demoAction('Send')">
+            Send
+          </button>
+
+          <button class="primary-btn" onclick="demoAction('Receive')">
+            Receive
+          </button>
+
+          <button class="primary-btn" onclick="demoAction('Swap')">
+            Swap
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- ASSETS -->
+      <div class="dashboard-section">
+
+        <div class="section-heading">
+
+          <h2>Your Assets</h2>
+
+          <input
+            type="search"
+            id="coinSearch"
+            placeholder="Search assets..."
+            aria-label="Search assets"
+          >
+
+        </div>
+
+        <div id="assetList" class="asset-list">
+
+          <!-- BITCOIN -->
+          <article class="asset-row" data-name="bitcoin btc">
+
+            <div class="coin-icon bitcoin">₿</div>
+
+            <div class="asset-info">
+              <h3>Bitcoin</h3>
+              <p>BTC</p>
+            </div>
+
+            <div class="asset-value">
+              <strong>$67,400.00</strong>
+              <p>0.15 BTC</p>
+            </div>
+
+          </article>
+
+          <!-- ETHEREUM -->
+          <article class="asset-row" data-name="ethereum eth">
+
+            <div class="coin-icon ethereum">Ξ</div>
+
+            <div class="asset-info">
+              <h3>Ethereum</h3>
+              <p>ETH</p>
+            </div>
+
+            <div class="asset-value">
+              <strong>$3,450.00</strong>
+              <p>2.5 ETH</p>
+            </div>
+
+          </article>
+
+          <!-- TETHER -->
+          <article class="asset-row" data-name="tether usdt">
+
+            <div class="coin-icon tether">₮</div>
+
+            <div class="asset-info">
+              <h3>Tether</h3>
+              <p>USDT</p>
+            </div>
+
+            <div class="asset-value">
+              <strong>$1.00</strong>
+              <p>5,000 USDT</p>
+            </div>
+
+          </article>
+
+        </div>
+
+        <p id="noAssets" hidden>
+          No matching assets found.
+        </p>
+
+      </div>
+
+      <!-- RECENT ACTIVITY -->
+      <div class="dashboard-section">
+
+        <h2>Recent Activity</h2>
+
+        <div class="activity-row">
+
+          <span>↓</span>
+
+          <div>
+            <strong>Received Bitcoin</strong>
+            <p>Sample transaction</p>
+          </div>
+
+          <strong>+0.015 BTC</strong>
+
+        </div>
+
+        <div class="activity-row">
+
+          <span>↑</span>
+
+          <div>
+            <strong>Sent Ethereum</strong>
+            <p>Sample transaction</p>
+          </div>
+
+          <strong>-0.20 ETH</strong>
+
+        </div>
+
+      </div>
+
+      <!-- DEMONSTRATION NOTICE -->
+      <p class="demo-notice">
+        Demonstration interface. No real cryptocurrency is stored,
+        sent, received or exchanged.
+      </p>
+
     </section>
+
   </main>
 
+  <!-- FOOTER -->
   <footer>
+
     <p>Independent cryptocurrency interface project.</p>
+
     <p>© 2026</p>
+
   </footer>
 
+  <!-- ACTION DIALOG -->
+  <dialog id="actionDialog">
+
+    <div class="dialog-content">
+
+      <button
+        class="dialog-close"
+        onclick="closeActionDialog()"
+        aria-label="Close dialog"
+      >×</button>
+
+      <h2 id="dialogTitle">Wallet action</h2>
+
+      <p id="dialogMessage">
+        This is a demonstration interface.
+      </p>
+
+      <button class="primary-btn" onclick="closeActionDialog()">
+        Close
+      </button>
+
+    </div>
+
+  </dialog>
+
   <script src="script.js"></script>
+
 </body>
 </html>
