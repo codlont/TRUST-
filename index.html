@@ -4,337 +4,312 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#ffffff">
-
-  <title>Trust Wallet | Digital Assets</title>
-
-  <meta name="description" content="Explore a modern digital asset wallet interface.">
-
+  <meta name="theme-color" content="#071c16">
+  <meta name="description" content="Codlont Wallet — an independent cryptocurrency wallet interface. Explore crypto, Web3 and digital assets.">
+  <title>Codlont Wallet | Your Crypto, Your Control</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <!-- NAVIGATION -->
-  <header class="navbar">
+<header class="site-header">
+  <a href="#" class="brand">
+    <span class="brand-icon">C</span>
+    <span>CODLONT <b>WALLET</b></span>
+  </a>
 
-    <a href="#" class="logo">TRUST WALLET</a>
+  <nav class="main-nav">
+    <a href="#features">Features</a>
+    <a href="#web3">Web3</a>
+    <a href="#security">Security</a>
+    <a href="#download">Download</a>
+  </nav>
 
-    <nav>
-      <a href="#features">Features</a>
-      <a href="#security">Security</a>
-      <a href="#download">Get Started</a>
-    </nav>
+  <div class="header-actions">
+    <button class="header-button" onclick="showWallet()">Open Wallet</button>
+    <button class="menu-toggle" aria-label="Open menu" onclick="document.querySelector('.main-nav').classList.toggle('nav-open')">☰</button>
+  </div>
+</header>
 
-    <button class="primary-btn" onclick="showWallet()">
-      Open Wallet
-    </button>
+<main>
 
-  </header>
+  <section class="hero">
+    <div class="hero-content">
+      <span class="eyebrow"><span class="live-dot"></span> YOUR INDEPENDENT CRYPTO WALLET</span>
 
-  <main>
-
-    <!-- HOMEPAGE HERO -->
-    <section class="hero">
-
-      <div class="hero-content">
-
-        <span class="eyebrow">YOUR DIGITAL ASSETS</span>
-
-        <h1>Your crypto.<br>Your control.</h1>
-
-        <p>
-          Explore a modern digital asset interface.
-          Manage your portfolio and discover the world
-          of cryptocurrency.
-        </p>
-
-        <div class="hero-actions">
-
-          <button class="primary-btn" onclick="showWallet()">
-            Explore Wallet
-          </button>
-
-          <a href="#features" class="secondary-btn">
-            Discover More
-          </a>
-
-        </div>
-
-      </div>
-
-      <div class="hero-visual">
-
-        <div class="wallet-card">
-
-          <span>Portfolio preview</span>
-
-          <h2>$24,580.80</h2>
-
-          <p>Sample portfolio balance</p>
-
-          <div class="wallet-symbol">₿</div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- FEATURES -->
-    <section id="features" class="features">
-
-      <h2>Everything in one place</h2>
-
-      <div class="feature-grid">
-
-        <article class="feature-card">
-          <h3>Portfolio</h3>
-          <p>View digital assets in one dashboard.</p>
-        </article>
-
-        <article class="feature-card">
-          <h3>Explore</h3>
-          <p>Discover cryptocurrencies and blockchain networks.</p>
-        </article>
-
-        <article class="feature-card">
-          <h3>Transactions</h3>
-          <p>Explore your transaction activity interface.</p>
-        </article>
-
-      </div>
-
-    </section>
-
-    <!-- SECURITY -->
-    <section id="security" class="security">
-
-      <h2>Security matters</h2>
+      <h1>Your crypto.<br><span>Your control.</span></h1>
 
       <p>
-        A wallet interface designed around privacy,
-        transparency and user control.
+        Explore the world of cryptocurrency with a wallet interface
+        designed to make your digital assets easier to understand
+        and manage.
       </p>
 
-    </section>
-
-    <!-- DOWNLOAD -->
-    <section id="download" class="download">
-
-      <h2>Start exploring</h2>
-
-      <p>Discover your digital asset dashboard.</p>
-
-      <button class="primary-btn" onclick="showWallet()">
-        Open Dashboard
-      </button>
-
-    </section>
-
-    <!-- WALLET DASHBOARD -->
-    <section id="wallet" class="wallet-dashboard" hidden>
-
-      <!-- DASHBOARD HEADER -->
-      <div class="dashboard-header">
-
-        <div>
-          <span class="eyebrow">MY PORTFOLIO</span>
-
-          <h2>Wallet Overview</h2>
-
-          <p>Manage and explore your digital assets.</p>
-        </div>
-
-        <button class="secondary-btn" onclick="closeWallet()">
-          Back to Home
-        </button>
-
+      <div class="hero-buttons">
+        <button class="primary-button" onclick="showWallet()">Explore Wallet <span>→</span></button>
+        <a href="#features" class="secondary-button">Discover features</a>
       </div>
 
-      <!-- PORTFOLIO BALANCE -->
-      <div class="balance-card">
-
-        <p>Total portfolio balance</p>
-
-        <h1 id="totalBalance">$24,580.80</h1>
-
-        <span class="positive">+2.45% today</span>
-
-        <!-- WALLET ACTIONS -->
-        <div class="wallet-actions">
-
-          <button class="primary-btn" onclick="demoAction('Send')">
-            Send
-          </button>
-
-          <button class="primary-btn" onclick="demoAction('Receive')">
-            Receive
-          </button>
-
-          <button class="primary-btn" onclick="demoAction('Swap')">
-            Swap
-          </button>
-
-        </div>
-
+      <div class="hero-trust">
+        <span>●</span> Independent project
+        <span>●</span> Demo interface
+        <span>●</span> Web3 ready design
       </div>
-
-      <!-- ASSETS -->
-      <div class="dashboard-section">
-
-        <div class="section-heading">
-
-          <h2>Your Assets</h2>
-
-          <input
-            type="search"
-            id="coinSearch"
-            placeholder="Search assets..."
-            aria-label="Search assets"
-          >
-
-        </div>
-
-        <div id="assetList" class="asset-list">
-
-          <!-- BITCOIN -->
-          <article class="asset-row" data-name="bitcoin btc">
-
-            <div class="coin-icon bitcoin">₿</div>
-
-            <div class="asset-info">
-              <h3>Bitcoin</h3>
-              <p>BTC</p>
-            </div>
-
-            <div class="asset-value">
-              <strong>$67,400.00</strong>
-              <p>0.15 BTC</p>
-            </div>
-
-          </article>
-
-          <!-- ETHEREUM -->
-          <article class="asset-row" data-name="ethereum eth">
-
-            <div class="coin-icon ethereum">Ξ</div>
-
-            <div class="asset-info">
-              <h3>Ethereum</h3>
-              <p>ETH</p>
-            </div>
-
-            <div class="asset-value">
-              <strong>$3,450.00</strong>
-              <p>2.5 ETH</p>
-            </div>
-
-          </article>
-
-          <!-- TETHER -->
-          <article class="asset-row" data-name="tether usdt">
-
-            <div class="coin-icon tether">₮</div>
-
-            <div class="asset-info">
-              <h3>Tether</h3>
-              <p>USDT</p>
-            </div>
-
-            <div class="asset-value">
-              <strong>$1.00</strong>
-              <p>5,000 USDT</p>
-            </div>
-
-          </article>
-
-        </div>
-
-        <p id="noAssets" hidden>
-          No matching assets found.
-        </p>
-
-      </div>
-
-      <!-- RECENT ACTIVITY -->
-      <div class="dashboard-section">
-
-        <h2>Recent Activity</h2>
-
-        <div class="activity-row">
-
-          <span>↓</span>
-
-          <div>
-            <strong>Received Bitcoin</strong>
-            <p>Sample transaction</p>
-          </div>
-
-          <strong>+0.015 BTC</strong>
-
-        </div>
-
-        <div class="activity-row">
-
-          <span>↑</span>
-
-          <div>
-            <strong>Sent Ethereum</strong>
-            <p>Sample transaction</p>
-          </div>
-
-          <strong>-0.20 ETH</strong>
-
-        </div>
-
-      </div>
-
-      <!-- DEMONSTRATION NOTICE -->
-      <p class="demo-notice">
-        Demonstration interface. No real cryptocurrency is stored,
-        sent, received or exchanged.
-      </p>
-
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-
-    <p>Independent cryptocurrency interface project.</p>
-
-    <p>© 2026</p>
-
-  </footer>
-
-  <!-- ACTION DIALOG -->
-  <dialog id="actionDialog">
-
-    <div class="dialog-content">
-
-      <button
-        class="dialog-close"
-        onclick="closeActionDialog()"
-        aria-label="Close dialog"
-      >×</button>
-
-      <h2 id="dialogTitle">Wallet action</h2>
-
-      <p id="dialogMessage">
-        This is a demonstration interface.
-      </p>
-
-      <button class="primary-btn" onclick="closeActionDialog()">
-        Close
-      </button>
-
     </div>
 
-  </dialog>
+    <div class="hero-visual">
+      <div class="glow-orb"></div>
 
-  <script src="script.js"></script>
+      <div class="floating-card floating-top">
+        <span class="coin-symbol bitcoin">₿</span>
+        <div><b>Bitcoin</b><small>BTC</small></div>
+        <strong>+2.45%</strong>
+      </div>
 
+      <div class="phone">
+        <div class="phone-top">
+          <span>9:41</span><span>● ● ●</span>
+        </div>
+        <div class="phone-brand">
+          <span class="brand-icon">C</span>
+          <b>Codlont Wallet</b>
+        </div>
+        <div class="phone-label">TOTAL PORTFOLIO</div>
+        <div class="phone-balance">$24,580.80</div>
+        <div class="phone-change">↗  +4.28% today</div>
+
+        <div class="phone-chart">
+          <svg viewBox="0 0 300 100" role="img" aria-label="Illustrative portfolio chart">
+            <path d="M0 78 C20 72 28 82 45 60 S75 70 92 45 S120 60 140 34 S170 55 190 24 S220 42 240 17 S270 30 300 5" fill="none" stroke="#42d99b" stroke-width="3" stroke-linecap="round"/>
+            <path d="M0 78 C20 72 28 82 45 60 S75 70 92 45 S120 60 140 34 S170 55 190 24 S220 42 240 17 S270 30 300 5 L300 100 L0 100Z" fill="url(#chartFill)" opacity=".16"/>
+            <defs>
+              <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#42d99b"/>
+                <stop offset="100%" stop-color="#42d99b" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+        <div class="phone-actions">
+          <span><i>↑</i>Send</span>
+          <span><i>↓</i>Receive</span>
+          <span><i>⇄</i>Swap</span>
+        </div>
+
+        <div class="phone-assets-title">MY ASSETS</div>
+        <div class="phone-asset">
+          <span class="coin-symbol bitcoin">₿</span>
+          <div><b>Bitcoin</b><small>BTC</small></div>
+          <strong>$15,240</strong>
+        </div>
+        <div class="phone-asset">
+          <span class="coin-symbol ethereum">◆</span>
+          <div><b>Ethereum</b><small>ETH</small></div>
+          <strong>$6,820</strong>
+        </div>
+        <div class="phone-asset">
+          <span class="coin-symbol tether">₮</span>
+          <div><b>Tether</b><small>USDT</small></div>
+          <strong>$2,520</strong>
+        </div>
+      </div>
+
+      <div class="floating-card floating-bottom">
+        <span class="success-icon">✓</span>
+        <div><b>Portfolio overview</b><small>Illustrative demo data</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-strip">
+    <div><strong>Multi-asset</strong><span>Digital asset interface</span></div>
+    <div><strong>Web3</strong><span>Explore decentralised apps</span></div>
+    <div><strong>Self-custody focused</strong><span>Designed around user control</span></div>
+  </section>
+
+  <section class="section features-section" id="features">
+    <div class="section-heading">
+      <span class="eyebrow">ONE WALLET EXPERIENCE</span>
+      <h2>Everything starts<br>with your wallet.</h2>
+      <p>Explore common cryptocurrency tools in one clean, easy-to-use interface.</p>
+    </div>
+
+    <div class="feature-grid">
+      <article class="feature-card">
+        <div class="feature-icon green">⇄</div>
+        <h3>Swap crypto</h3>
+        <p>Explore how digital asset swaps work with a simple demonstration interface.</p>
+        <a href="#wallet">Explore swaps →</a>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon purple">◈</div>
+        <h3>Discover Web3</h3>
+        <p>Learn about decentralised applications and the wider blockchain ecosystem.</p>
+        <a href="#web3">Explore Web3 →</a>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon orange">₿</div>
+        <h3>Manage assets</h3>
+        <p>View an illustrative portfolio of popular digital assets in one place.</p>
+        <a href="#wallet">View portfolio →</a>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon blue">⌁</div>
+        <h3>Track activity</h3>
+        <p>See how transactions and portfolio activity can be presented in a wallet.</p>
+        <a href="#wallet">View activity →</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="showcase-section" id="web3">
+    <div class="showcase-content">
+      <span class="eyebrow">THE WEB3 EXPERIENCE</span>
+      <h2>Explore more of<br>the digital world.</h2>
+      <p>
+        Cryptocurrency is more than buying and holding assets.
+        Discover decentralised applications, blockchain networks
+        and the expanding Web3 ecosystem.
+      </p>
+      <button class="primary-button" onclick="showWallet()">Explore the demo <span>→</span></button>
+    </div>
+
+    <div class="showcase-visual">
+      <div class="web3-circle circle-one">DeFi</div>
+      <div class="web3-circle circle-two">NFT</div>
+      <div class="web3-circle circle-three">DApps</div>
+      <div class="web3-center">WEB<br>3.0</div>
+      <div class="web3-circle circle-four">Chain</div>
+    </div>
+  </section>
+
+  <section class="section security-section" id="security">
+    <div class="security-visual">
+      <div class="security-ring">
+        <div class="shield">✓</div>
+      </div>
+      <span class="security-orbit orbit-one"></span>
+      <span class="security-orbit orbit-two"></span>
+    </div>
+
+    <div class="security-content">
+      <span class="eyebrow">SECURITY MATTERS</span>
+      <h2>Your assets.<br>Your responsibility.</h2>
+      <p>
+        Understand the principles of self-custody and safe
+        cryptocurrency use. Always protect your recovery phrase
+        and never share it with anyone.
+      </p>
+      <ul class="security-list">
+        <li><span>✓</span> Never share your recovery phrase.</li>
+        <li><span>✓</span> Verify addresses before sending.</li>
+        <li><span>✓</span> Be careful with suspicious links.</li>
+        <li><span>✓</span> Review transactions before approval.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="download-section" id="download">
+    <div>
+      <span class="eyebrow">CODLONT WALLET</span>
+      <h2>Your crypto journey<br>starts here.</h2>
+      <p>Explore the wallet demonstration and discover its interface.</p>
+      <button class="primary-button" onclick="showWallet()">Open Wallet <span>→</span></button>
+      <small>Independent demonstration project. No real transactions are processed.</small>
+    </div>
+    <div class="download-art">
+      <div class="download-logo">C</div>
+      <span>CODLONT<br>WALLET</span>
+    </div>
+  </section>
+
+  <section class="section faq-section">
+    <div class="section-heading">
+      <span class="eyebrow">HELP CENTRE</span>
+      <h2>Frequently asked questions.</h2>
+    </div>
+    <details>
+      <summary>Is Codlont Wallet an official Trust Wallet product?</summary>
+      <p>No. Codlont Wallet is an independent project and is not affiliated with Trust Wallet.</p>
+    </details>
+    <details>
+      <summary>Can I send real cryptocurrency?</summary>
+      <p>No. The current website is a demonstration interface. It does not process blockchain transactions.</p>
+    </details>
+    <details>
+      <summary>Does the website ask for recovery phrases?</summary>
+      <p>No. Never enter or share your recovery phrase on this demonstration website.</p>
+    </details>
+  </section>
+
+  <section class="wallet-dashboard" id="wallet" hidden>
+    <div class="dashboard-top">
+      <div>
+        <span class="eyebrow">CODLONT WALLET DEMO</span>
+        <h2>Your portfolio</h2>
+      </div>
+      <button class="close-wallet" onclick="closeWallet()">Close ×</button>
+    </div>
+
+    <div class="dashboard-balance">
+      <span>Total portfolio value</span>
+      <h2>$24,580.80</h2>
+      <p>↗ +4.28% <span>Illustrative daily change</span></p>
+    </div>
+
+    <div class="dashboard-actions">
+      <button onclick="demoAction('Send')">↑ <span>Send</span></button>
+      <button onclick="demoAction('Receive')">↓ <span>Receive</span></button>
+      <button onclick="demoAction('Swap')">⇄ <span>Swap</span></button>
+    </div>
+
+    <div class="dashboard-assets">
+      <h3>Your assets</h3>
+      <div class="asset-row">
+        <span class="coin-symbol bitcoin">₿</span>
+        <div><b>Bitcoin</b><small>BTC · Sample asset</small></div>
+        <strong>$15,240.00</strong>
+      </div>
+      <div class="asset-row">
+        <span class="coin-symbol ethereum">◆</span>
+        <div><b>Ethereum</b><small>ETH · Sample asset</small></div>
+        <strong>$6,820.80</strong>
+      </div>
+      <div class="asset-row">
+        <span class="coin-symbol tether">₮</span>
+        <div><b>Tether</b><small>USDT · Sample asset</small></div>
+        <strong>$2,520.00</strong>
+      </div>
+    </div>
+
+    <p class="demo-notice">Demonstration only. These balances are fictional sample data. No real funds or transactions are involved.</p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <a href="#" class="brand">
+    <span class="brand-icon">C</span>
+    <span>CODLONT <b>WALLET</b></span>
+  </a>
+  <p>Independent cryptocurrency wallet interface demonstration.</p>
+  <p>© 2026 Codlont. All rights reserved.</p>
+</footer>
+
+<dialog id="actionDialog">
+  <div class="dialog-content">
+    <button class="dialog-close" onclick="closeActionDialog()">×</button>
+    <div class="dialog-symbol">ⓘ</div>
+    <h3 id="dialogTitle">Demo action</h3>
+    <p id="dialogMessage">This is a demonstration.</p>
+    <button class="primary-button" onclick="closeActionDialog()">Got it</button>
+  </div>
+</dialog>
+
+<script src="script.js"></script>
 </body>
 </html>
+
