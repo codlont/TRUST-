@@ -1,5 +1,5 @@
 
-const SUPABASE_URL = "https://sitoqfxyzezvwrrooqra.supabase.co/rest/v1/";
+const SUPABASE_URL = "https://sitoqfxyzezvwrrooqra.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_wl2NsJaGHrO0M1wGmSos_g_oesRfGQi";
 
 const connectButton = document.getElementById("connectButton");
