@@ -10,26 +10,26 @@ connectButton.addEventListener("click", async function () {
   statusText.textContent = "Checking backend connection...";
 
   try {
-    const response = await fetch(
-      `${SUPABASE_URL}/auth/v1/health`,
-      {
-        method: "GET",
-        headers: {
-          "apikey": SUPABASE_PUBLISHABLE_KEY
-        }
+    const baseUrl = SUPABASE_URL.replace(/\/+$/, "");
+
+    const response = await fetch(`${baseUrl}/auth/v1/health`, {
+      method: "GET",
+      headers: {
+        apikey: SUPABASE_PUBLISHABLE_KEY
       }
-    );
+    });
+
+    const result = await response.text();
 
     if (!response.ok) {
-      throw new Error("Backend connection failed.");
+      throw new Error(`HTTP ${response.status}: ${result.slice(0, 250)}`);
     }
 
-    statusText.textContent =
-      "Backend connection successful. No wallet has been connected.";
+    statusText.textContent = "Backend connection successful.";
 
   } catch (error) {
-    statusText.textContent =
-      "Backend connection failed. Please try again.";
+    console.error("Supabase connection error:", error);
+    statusText.textContent = `Connection error: ${error.message}`;
   } finally {
     connectButton.disabled = false;
   }
