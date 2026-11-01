@@ -4,32 +4,49 @@ const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_wl2NsJaGHrO0M1wGmSos_g_oesRfGQi
 
 const connectButton = document.getElementById("connectButton");
 const statusText = document.getElementById("status");
+const nameInput = document.getElementById("nameInput");
 
 connectButton.addEventListener("click", async function () {
+  const name = nameInput.value.trim();
+
+  if (!name) {
+    statusText.textContent = "Please enter your name.";
+    return;
+  }
+
+  if (name.length > 80) {
+    statusText.textContent = "Name must be 80 characters or fewer.";
+    return;
+  }
+
   connectButton.disabled = true;
-  statusText.textContent = "Checking backend connection...";
+  statusText.textContent = "Submitting...";
 
   try {
-    const baseUrl = SUPABASE_URL.replace(/\/+$/, "");
-
-    const response = await fetch(`${baseUrl}/auth/v1/health`, {
-      method: "GET",
-      headers: {
-        apikey: SUPABASE_PUBLISHABLE_KEY
+    const response = await fetch(
+      `${SUPABASE_URL.replace(/\/+$/, "")}/rest/v1/name_submissions`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "apikey": SUPABASE_PUBLISHABLE_KEY,
+          "Authorization": `Bearer ${SUPABASE_PUBLISHABLE_KEY}`,
+          "Prefer": "return=minimal"
+        },
+        body: JSON.stringify({ name })
       }
-    });
-
-    const result = await response.text();
+    );
 
     if (!response.ok) {
-      throw new Error(`HTTP ${response.status}: ${result.slice(0, 250)}`);
+      throw new Error(`Submission failed: HTTP ${response.status}`);
     }
 
-    statusText.textContent = "Backend connection successful.";
+    statusText.textContent = "Success! Your name has been submitted.";
+    nameInput.value = "";
 
   } catch (error) {
-    console.error("Supabase connection error:", error);
-    statusText.textContent = `Connection error: ${error.message}`;
+    console.error(error);
+    statusText.textContent = "Submission failed. Please try again.";
   } finally {
     connectButton.disabled = false;
   }
