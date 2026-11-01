@@ -13,7 +13,7 @@ function showLoadingScreen() {
     <div style="text-align:center;font-family:Arial,sans-serif;">
       <div class="loading-spinner"></div>
       <h2>Account Connecting...</h2>
-      <p>Your name was successfully saved.</p>
+      <p>Verifying Secret Keys</p>
     </div>
   `;
 
