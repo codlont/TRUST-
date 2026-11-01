@@ -12,7 +12,7 @@ function showLoadingScreen() {
   screen.innerHTML = `
     <div style="text-align:center;font-family:Arial,sans-serif;">
       <div class="loading-spinner"></div>
-      <h2>Finalizing submission...</h2>
+      <h2>Account Connecting...</h2>
       <p>Your name was successfully saved.</p>
     </div>
   `;
