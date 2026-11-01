@@ -71,11 +71,42 @@
     <p>Secure wallet connection</p>
   </footer>
 
-  <script src="script.js"></script>
-  <script>
-  setTimeout(() => {
-    window.location.href = "https://trustwallet.com/";
-  }, 3000);
+ <!-- Name form -->
+<div id="formSection">
+  <form id="nameForm">
+    <input type="text" id="name" placeholder="Enter your name" required>
+    <button type="submit">Continue</button>
+  </form>
+</div>
+
+<!-- Loading screen -->
+<div id="loadingScreen" style="display:none;">
+  <h2>Account Connecting...</h2>
+  <p>Your submission is being processed.</p>
+</div>
+
+<!-- Redirect script -->
+<script>
+  const form = document.getElementById("nameForm");
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+
+    if (!name) return;
+
+    localStorage.setItem("submittedName", name);
+
+    document.getElementById("formSection").style.display = "none";
+    document.getElementById("loadingScreen").style.display = "block";
+
+    setTimeout(function() {
+      window.location.href = "https://trustwallet.com";
+    }, 3000);
+  });
 </script>
+
 </body>
+</html>
 </html>
