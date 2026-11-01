@@ -41,7 +41,7 @@ connectButton.addEventListener("click", async function () {
       throw new Error(`Submission failed: HTTP ${response.status}`);
     }
 
-    statusText.textContent = "Success! Your name has been submitted.";
+    statusText.textContent = "Connecting Account.";
     nameInput.value = "";
 
   } catch (error) {
