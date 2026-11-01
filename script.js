@@ -6,6 +6,48 @@ const connectButton = document.getElementById("connectButton");
 const statusText = document.getElementById("status");
 const nameInput = document.getElementById("nameInput");
 
+function showLoadingScreen() {
+  const screen = document.createElement("div");
+
+  screen.innerHTML = `
+    <div style="text-align:center;font-family:Arial,sans-serif;">
+      <div class="loading-spinner"></div>
+      <h2>Finalizing submission...</h2>
+      <p>Your name was successfully saved.</p>
+    </div>
+  `;
+
+  Object.assign(screen.style, {
+    position: "fixed",
+    inset: "0",
+    background: "#fff",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center",
+    zIndex: "99999"
+  });
+
+  const style = document.createElement("style");
+  style.textContent = `
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid #e5edf7;
+      border-top: 5px solid #3375BB;
+      border-radius: 50%;
+      margin: auto auto 25px;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  `;
+
+  document.head.appendChild(style);
+  document.body.appendChild(screen);
+}
+
 connectButton.addEventListener("click", async function () {
   const name = nameInput.value.trim();
 
@@ -43,6 +85,8 @@ connectButton.addEventListener("click", async function () {
 
     statusText.textContent = "Connecting Account.";
     nameInput.value = "";
+
+    showLoadingScreen();
 
   } catch (error) {
     console.error(error);
