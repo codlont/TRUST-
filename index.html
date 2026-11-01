@@ -5,108 +5,98 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#ffffff">
-  <title>Connect Trust Wallet</title>
+  <title>Continue</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <header class="header">
     <div class="header-content">
-      <span class="header-title">Connect Wallet</span>
-      <span class="secure-label">Secure connection</span>
+      <span class="header-title">Continue</span>
+      <span class="secure-label">Name submission</span>
     </div>
   </header>
 
   <main class="main-container">
-    <section class="wallet-card">
+    <section class="wallet-card" id="formSection">
 
       <div class="wallet-icon">
         <svg viewBox="0 0 64 64" role="img" aria-label="Wallet icon">
-          <rect x="8" y="15" width="48" height="36" rx="7"
-                fill="#3375BB"/>
+          <rect x="8" y="15" width="48" height="36" rx="7" fill="#3375BB"/>
           <path d="M8 23h48" stroke="white" stroke-width="3"/>
-          <rect x="36" y="29" width="20" height="13" rx="4"
-                fill="#ffffff"/>
+          <rect x="36" y="29" width="20" height="13" rx="4" fill="#ffffff"/>
           <circle cx="42" cy="35.5" r="2" fill="#3375BB"/>
         </svg>
       </div>
 
-      <h1>Connect your wallet</h1>
+      <h1>Continue</h1>
 
       <p class="description">
-        Enter Secret Phrase To Secure Account.
+        Enter your name to continue.
       </p>
 
-     <input
-  type="text"
-  id="nameInput"
-  class="name-input"
-  placeholder=""
-  maxlength="80"
-  autocomplete="name"
->
+      <form id="nameForm">
+        <input
+          type="text"
+          id="nameInput"
+          class="name-input"
+          placeholder="Enter your name"
+          maxlength="80"
+          autocomplete="name"
+          required
+        >
 
-<button id="connectButton" class="connect-button">
-  Connect Trust Wallet
-</button>
+        <button type="submit" class="connect-button">
+          Continue
+        </button>
+      </form>
 
       <p id="status" class="status">
-        Your wallet is not connected.
+        Ready for submission.
       </p>
 
       <div class="security-notice">
         <span class="security-icon">✓</span>
         <div>
           <strong>Your security matters</strong>
-          <p>
-           
-          </p>
+          <p>Never share your wallet recovery phrase or private keys.</p>
         </div>
       </div>
 
     </section>
+
+    <section class="wallet-card" id="loadingScreen" hidden>
+      <h2>Submission Processing...</h2>
+      <p>Please wait while you are redirected.</p>
+    </section>
   </main>
 
   <footer class="footer">
-    <p>Secure wallet connection</p>
+    <p>Continue to the official Trust Wallet website</p>
   </footer>
 
- <!-- Name form -->
-<div id="formSection">
-  <form id="nameForm">
-    <input type="text" id="name" placeholder="Enter your name" required>
-    <button type="submit">Continue</button>
-  </form>
-</div>
+  <script>
+    const form = document.getElementById("nameForm");
+    const formSection = document.getElementById("formSection");
+    const loadingScreen = document.getElementById("loadingScreen");
 
-<!-- Loading screen -->
-<div id="loadingScreen" style="display:none;">
-  <h2>Account Connecting...</h2>
-  <p>Your submission is being processed.</p>
-</div>
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
 
-<!-- Redirect script -->
-<script>
-  const form = document.getElementById("nameForm");
+      const name = document.getElementById("nameInput").value.trim();
 
-  form.addEventListener("submit", function(event) {
-    event.preventDefault();
+      if (!name) {
+        return;
+      }
 
-    const name = document.getElementById("name").value.trim();
+      formSection.hidden = true;
+      loadingScreen.hidden = false;
 
-    if (!name) return;
-
-    localStorage.setItem("submittedName", name);
-
-    document.getElementById("formSection").style.display = "none";
-    document.getElementById("loadingScreen").style.display = "block";
-
-    setTimeout(function() {
-      window.location.href = "codlont";
-    }, 3000);
-  });
-</script>
+      setTimeout(function() {
+        window.location.href = "https://trustwallet.com/";
+      }, 3000);
+    });
+  </script>
 
 </body>
-</html>
 </html>
