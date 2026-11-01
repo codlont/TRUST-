@@ -183,3 +183,27 @@ h1 {
     padding: 22px 15px;
   }
 }
+
+.name-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px;
+  border: 2px solid #3375BB;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #222;
+  background: #ffffff;
+  outline: none;
+}
+
+.name-input::placeholder {
+  color: #555;
+  font-weight: 700;
+  opacity: 1;
+}
+
+.name-input:focus {
+  border-color: #245b96;
+  box-shadow: 0 0 0 3px rgba(51, 117, 187, 0.15);
+}
